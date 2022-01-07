@@ -3,6 +3,7 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix download)
   #:use-module (guix git-download)
+  #:use-module (guix build-system gnu)
   #:use-module (gnu packages)
   #:use-module (gnu packages statistics)
   #:use-module (gnu packages cran))
@@ -15,8 +16,8 @@
                 (method git-fetch)
                 (uri (git-reference
                       (url "git://github.com/mbcladwell/mutvis.git")
-                      (commit "772353a269021e8dc9daf393134d698c5d5f5e0a")))
-                (sha256 (base32 "14b5qh85ydxn71igh0ng57czvg9afhpihnppwqgd4n3yh63ymxi7"))
+                      (commit "9b83103b6a6b1ae06775ad40e9682b9cadaac1a2")))
+                (sha256 (base32 "1hvqdfbgxhdvkqwnf0vbfi5y432w2x5q5gqbndb68f1pxqrfvz4w"))
 		))
 
   (build-system gnu-build-system)
