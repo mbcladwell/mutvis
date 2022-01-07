@@ -16,8 +16,8 @@
                 (method git-fetch)
                 (uri (git-reference
                       (url "git://github.com/mbcladwell/mutvis.git")
-                      (commit "9b83103b6a6b1ae06775ad40e9682b9cadaac1a2")))
-                (sha256 (base32 "1hvqdfbgxhdvkqwnf0vbfi5y432w2x5q5gqbndb68f1pxqrfvz4w"))
+                      (commit "9b53c7998130df09de9bfa25bd90a93749dfff70")))
+                (sha256 (base32 "1jzwjk3ni58nzijl21ja4z62lxbx7y7jqa5r5b6w9vc4d92pbg5j"))
 		))
 
   (build-system gnu-build-system)
@@ -80,3 +80,4 @@
   (home-page "www.labsolns.com")
   (license license:gpl3+)))
 
+mutvis
