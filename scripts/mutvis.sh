@@ -1,2 +1,2 @@
 #! /bin/bash
-abcdefgh/mutvis2.sh abcdefgh/app.R
+mutvis2.sh app.R

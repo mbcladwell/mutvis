@@ -22,6 +22,7 @@
               ((info-file "mutvis")
                (texi-file "mutvis")
                (texi-file "version")
+               (info-file "version")
                (text-file ".dirstamp")
                (text-file "stamp-vti")))
             (text-file "COPYING")
