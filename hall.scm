@@ -17,7 +17,13 @@
          (documentation
            ((text-file "AUTHORS")
             (text-file "NEWS")
-            (directory "doc" ((texi-file "mutvis")))
+            (directory
+              "doc"
+              ((info-file "mutvis")
+               (texi-file "mutvis")
+               (texi-file "version")
+               (text-file ".dirstamp")
+               (text-file "stamp-vti")))
             (text-file "COPYING")
             (text-file "HACKING")
             (symlink "README" "README.org")
