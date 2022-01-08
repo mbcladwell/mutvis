@@ -63,6 +63,9 @@ EXTRA_DIST += AUTHORS \
               .gitignore \
               guix.scm \
               build-aux/test-driver.scm \
+              input.aln \
+              app.R \
+              scripts/*.sh \
               $(TESTS)
 
 ACLOCAL_AMFLAGS = -I m4

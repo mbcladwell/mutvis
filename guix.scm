@@ -1,4 +1,4 @@
-(define-module (labsolns mutvis)
+(define-module (mutvis)
  #:use-module  (guix packages)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix download)
@@ -16,7 +16,7 @@
                 (method git-fetch)
                 (uri (git-reference
                       (url "git://github.com/mbcladwell/mutvis.git")
-                      (commit "0a63ed83133bfa21ed54091bd11ec1cb0925ffc5")))
+                      (commit "f5dcc87117d9ccf5846d7f783360316bf63b155d")))
                 (sha256 (base32 "18l3rlkhx01y1cdnk56b2cgcnb2x7c3q0yvvh0qc3cb5mdrkhby7"))
 		))
 
