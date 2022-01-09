@@ -1,2 +1,3 @@
-#! /bin/bash
-abcdefgh/mutvis2.sh abcdefgh/app.R
+#!/usr/bin/env Rscript
+library(shiny)
+runApp("/home/mbc/projects/mutvis/app.R")

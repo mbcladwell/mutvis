@@ -21,8 +21,8 @@
                 (method git-fetch)
                 (uri (git-reference
                       (url "git://github.com/mbcladwell/mutvis.git")
-                      (commit "4e25aea04da3b18627d4957712cab84ff928e520")))
-                (sha256 (base32 "0vv70s7s7dv80bj96661ypllkcnkl2m4p1d8z5z0qgkcfnkkixd6"))
+                      (commit "42393b8cfe4f638ad7343adda7ee9a7188394048")))
+                (sha256 (base32 "0swh0sa6aswm7brx6mplwqqvpdzs60z486cl6zy63dvgj102pkyr"))
 		))
 
   (build-system gnu-build-system)
