@@ -21,20 +21,26 @@
                 (method git-fetch)
                 (uri (git-reference
                       (url "git://github.com/mbcladwell/mutvis.git")
-                      (commit "42393b8cfe4f638ad7343adda7ee9a7188394048")))
-                (sha256 (base32 "0swh0sa6aswm7brx6mplwqqvpdzs60z486cl6zy63dvgj102pkyr"))
+                      (commit "12035641f826defaada850d43c7cc88a91638883")))
+                (sha256 (base32 "1638vipdy1lak6nksa64h9n3l9l2lxhk1j0w2y5xmdn3yf5h1xc2"))
 		))
 
   (build-system gnu-build-system)
   (arguments `(	#:phases (modify-phases %standard-phases
 					(add-after 'unpack 'patch-prefix
 						   (lambda* (#:key inputs outputs #:allow-other-keys)
-						     (substitute* '("./scripts/mutvis.sh"
-								    "./scripts/mutvis2.sh"
+						     (substitute* '("./scripts/mutvis.sh"								    
+								    )
+								  (("app.R")
+								   (string-append (assoc-ref outputs "out" ) "app.R") )
+								  #t)))
+					(add-after 'unpack 'patch-prefix
+						   (lambda* (#:key inputs outputs #:allow-other-keys)
+						     (substitute* '(								    
 								    "./app.R")
 								  (("abcdefgh")
-								   (assoc-ref outputs "out" )) )
-						     #t))
+								    (assoc-ref outputs "out" )  )
+								  #t)))
 					(add-after 'unpack 'copy-app
 						    (lambda* (#:key outputs #:allow-other-keys)
 						      (let* ((out  (assoc-ref outputs "out")))
@@ -43,11 +49,8 @@
 					(add-after 'unpack 'copy-executable
 						    (lambda* (#:key outputs #:allow-other-keys)
 						      (let* ((out  (assoc-ref outputs "out"))
-							     (bin-dir (string-append out "/bin"))
-							     
-	    						     (dummy (install-file "./scripts/mutvis.sh" bin-dir))
-							     )            				       
-							(install-file "./scripts/mutvis2.sh" bin-dir)
+							     (bin-dir (string-append out "/bin"))							     	    						   		      )            				       
+							(install-file "./scripts/mutvis.sh" bin-dir)
 							#t)))
 				(add-after 'unpack 'copy-seqs
 						    (lambda* (#:key outputs #:allow-other-keys)
@@ -59,12 +62,9 @@
 						   (lambda* (#:key inputs outputs #:allow-other-keys)
 						     (let* ((out (assoc-ref outputs "out"))
 							    (bin-dir (string-append out "/bin"))					   
-							    (dummy (chmod (string-append out "/bin/mutvis.sh") #o555 )) ;;read execute, no write
-							    (dummy (chmod (string-append out "/bin/mutvis2.sh") #o555 ))
-							    (dummy (wrap-program (string-append out "/bin/mutvis.sh")
-								     `( "PATH" ":" prefix  (,bin-dir) )))
+							    (dummy (chmod (string-append out "/bin/mutvis.sh") #o555 )) ;;read execute, no write		
 							    ) 
-						       (wrap-program (string-append out "/bin/mutvis2.sh")
+						       (wrap-program (string-append out "/bin/mutvis.sh")
 								     `( "PATH" ":" prefix  (,bin-dir) ))
 						       #t)))					
 	      ) ))
