@@ -1,3 +1,2 @@
-#!/usr/bin/env Rscript
-library(shiny)
+#! /bin/bash
 Rscript abcdefgh/app.R
