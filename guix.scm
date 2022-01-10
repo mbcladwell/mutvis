@@ -21,26 +21,19 @@
                 (method git-fetch)
                 (uri (git-reference
                       (url "git://github.com/mbcladwell/mutvis.git")
-                      (commit "12035641f826defaada850d43c7cc88a91638883")))
-                (sha256 (base32 "1638vipdy1lak6nksa64h9n3l9l2lxhk1j0w2y5xmdn3yf5h1xc2"))
+                      (commit "13f26a951a529780cd85de7c881e8028b52b4ea9")))
+                (sha256 (base32 "0579a967g1hvcz2dfzki3xayapgylb7g8gl4w1c3mq3nx7lx5pxa"))
 		))
 
   (build-system gnu-build-system)
-  (arguments `(	#:phases (modify-phases %standard-phases
-					(add-after 'unpack 'patch-prefix
+  (arguments `(	#:phases (modify-phases %standard-phases												  
+					(add-after 'unpack 'patch-prefix2
 						   (lambda* (#:key inputs outputs #:allow-other-keys)
-						     (substitute* '("./scripts/mutvis.sh"								    
-								    )
-								  (("app.R")
-								   (string-append (assoc-ref outputs "out" ) "app.R") )
-								  #t)))
-					(add-after 'unpack 'patch-prefix
-						   (lambda* (#:key inputs outputs #:allow-other-keys)
-						     (substitute* '(								    
+						     (substitute* '( "./scripts/mutvis.sh"								    
 								    "./app.R")
 								  (("abcdefgh")
-								    (assoc-ref outputs "out" )  )
-								  #t)))
+								    (assoc-ref outputs "out" )  ))
+								  #t))
 					(add-after 'unpack 'copy-app
 						    (lambda* (#:key outputs #:allow-other-keys)
 						      (let* ((out  (assoc-ref outputs "out")))
