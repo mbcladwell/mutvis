@@ -21,8 +21,8 @@
                 (method git-fetch)
                 (uri (git-reference
                       (url "git://github.com/mbcladwell/mutvis.git")
-                      (commit "84720ed957c232f240f0932c778cc189108281f1")))
-                (sha256 (base32 "1ai9y3s8hjj2rqv30aqjmrslrl746q03sa90bsh604vji7xs93xb"))
+                      (commit "62755fbd140e2a8c1eef9e661f72c7163c9d1d14")))
+                (sha256 (base32 "0vp32xnn3j8y7sqjzklw3q93801knna6zq2m01iw8cfvyiczgfii"))
 		))
 
   (build-system gnu-build-system)
@@ -33,23 +33,24 @@
 								    "./app.R")
 								  (("abcdefgh")
 								    (assoc-ref outputs "out" )  ))
-								  #t))
-					(add-after 'unpack 'copy-app
+						     #t))
+					(add-after 'unpack 'copy-seqs
+						   (lambda* (#:key outputs #:allow-other-keys)
+						     (let* ((out  (assoc-ref outputs "out"))
+							    )            				       
+						       (install-file "./input.aln" out)
+						       #t)))
+
+					(add-after 'patch-source-shebangs 'copy-app
 						    (lambda* (#:key outputs #:allow-other-keys)
 						      (let* ((out  (assoc-ref outputs "out")))
 							     (install-file "app.R" out)     			     	     
 							     #t)))
-					(add-after 'unpack 'copy-executable
+					(add-after 'patch-source-shebangs 'copy-executable
 						    (lambda* (#:key outputs #:allow-other-keys)
 						      (let* ((out  (assoc-ref outputs "out"))
 							     (bin-dir (string-append out "/bin"))							     	    						   		      )            				       
 							(install-file "./scripts/mutvis.sh" bin-dir)
-							#t)))
-				(add-after 'unpack 'copy-seqs
-						    (lambda* (#:key outputs #:allow-other-keys)
-						      (let* ((out  (assoc-ref outputs "out"))
-							     )            				       
-							(install-file "./input.aln" out)
 							#t)))
 					(add-before 'configure 'wrap-seqeval
 						   (lambda* (#:key inputs outputs #:allow-other-keys)
