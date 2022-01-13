@@ -21,8 +21,8 @@
                 (method git-fetch)
                 (uri (git-reference
                       (url "git://github.com/mbcladwell/mutvis.git")
-                      (commit "92512ae9ab62c3b94639cdeef7deb53800d87009")))
-                (sha256 (base32 "1wi2msdfwa7i9ws562ala6wlki6kvkjhlwqgr1hjjn1gxxqcx53w"))
+                      (commit "2fd92a17a6a94f095595593dca2e6820f9895e9d")))
+                (sha256 (base32 "1lz5nna7wxj68xk48bj1znwskwpfa8d6kl1vafnihn4jymm339x0"))
 		))
 
   (build-system gnu-build-system)
@@ -69,13 +69,14 @@
       ("pkg-config" ,pkg-config)
       ("texinfo" ,texinfo)
       ))
-  (inputs `(
-	    ("r-seqinr" ,r-seqinr)
-	    ("r-shiny" ,r-shiny)
+  (inputs `(	  
 	    ("guile" ,guile-3.0)
 	  ))
   (propagated-inputs `(
 		       ("r" ,r)
+		       ("r-seqinr" ,r-seqinr)
+		       ("r-shiny" ,r-shiny)
+		       ("r-markdown" ,r-markdown)
 		       ))
   (synopsis "")
   (description "")

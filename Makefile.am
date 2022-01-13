@@ -32,7 +32,8 @@ SUFFIXES = .scm .go
 .scm.go:
 	$(AM_V_GEN)$(top_builddir)/pre-inst-env $(GUILE_TOOLS) compile $(GUILE_WARNINGS) -o "$@" "$<"
 
-SOURCES = mutvis.scm
+#SOURCES = mutvis.scm
+SOURCES = 
 
 TESTS = 
 
